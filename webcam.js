@@ -1,7 +1,7 @@
 // The function to start the video stream from the webcam
 
 const OPENAI_URL = 'https://api.openai.com/v1/chat/completions';
-const API_KEY = config.API_KEY;
+let API_KEY = config.API_KEY;
 
 
 function startWebcam() {
@@ -84,6 +84,10 @@ function sendToAPI(imageData) {
 // Event listener for the capture button
 document.getElementById('capture').addEventListener('click', function() {
     takePicture();
+});
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    API_KEY = config.API_KEY;
 });
 
 // Start the webcam stream when the window loads
